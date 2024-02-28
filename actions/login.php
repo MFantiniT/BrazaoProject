@@ -9,10 +9,10 @@
     include('../db/conexaodb.php');
     //verificamos se o usuário está logado
     if(isset($_SESSION['id'])){
-        header("Location: ../index.php");
+        header("Location: ../dashboard.php");
         exit;
     }
-    //verificamos se o usuário clicou no botão de login usando stmt
+    //verificamos se o usuário clicou no botão de login
     if(isset($_POST['login'])){
         //pegamos os valores dos campos do formulário
         $email = $_POST['email'];
@@ -35,7 +35,7 @@
                     $_SESSION['email'] = $dados['email'];
                     //redirecionamos o usuário para a página inicial
                     //apos o login redirecionamos o usuário para a página inicial que está na pasta raiz do projeto
-                    header("Location: ../index.php");
+                    header("Location: ../dashboard.php");
                     exit;
                 }else{
                     $erro = "Email ou senha incorretos!";
